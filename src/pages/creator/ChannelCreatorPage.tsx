@@ -1,6 +1,6 @@
-import ChannelCardList from "../../components/organism/ChannelCardList";
+import ChannelTable from "../../components/organism/ChannelTable";
 
 export default function ChannelCreatorPage() {
 
-    return <ChannelCardList/>
+    return <ChannelTable/>
 }

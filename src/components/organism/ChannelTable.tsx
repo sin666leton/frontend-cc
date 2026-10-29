@@ -2,23 +2,23 @@ import { PlusIcon } from "lucide-react";
 import usePaginateChannel from "../../hooks/channel/usePaginateChannel"
 import { Card, CardContent, CardFooter, CardHeader } from "../../lib/shadcn/ui/card"
 import FormCreateChannelModal from "./FormCreateChannelModal";
+import { useState } from "react";
 
-export default function ChannelCardList() {
+export default function ChannelTable() {
     const {data, setPage} = usePaginateChannel(1)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
         <>
             <Card className="bg-white neo-shadow">
                 <CardHeader className="justify-end">
-                    {/* <div className="flex items-center justify-end"> */}
-                        <button
-                            // onClick={handleAddChannel}
-                            className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold neo-btn active:translate-x-1 active:translate-y-1 active:shadow-none neo-shadow-right neo-primary"
-                        >
-                            <PlusIcon size={22}/>
-                            Tambah Channel
-                        </button>
-                    {/* </div> */}
+                    <button
+                        onClick={() => setIsOpen(true)}
+                        className="cursor-pointer inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold neo-btn active:translate-x-1 active:translate-y-1 active:shadow-none neo-shadow-right neo-primary"
+                    >
+                        <PlusIcon size={22}/>
+                        Tambah Channel
+                    </button>
                 </CardHeader>
                 <CardContent className="px-1">
                     {data && (
@@ -105,7 +105,10 @@ export default function ChannelCardList() {
                     </div>
                 </CardFooter>
             </Card>
-            <FormCreateChannelModal/>
+            <FormCreateChannelModal
+                isOpen={isOpen}
+                handleClose={() => setIsOpen(false)}
+            />
         </>
     )
 }

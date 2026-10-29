@@ -19,7 +19,7 @@ export default function AppModal({
     isLoading
 }: IAppModal) {
     return <Dialog open={isOpen} onOpenChange={handleClose}>
-        <DialogContent>
+        <DialogContent className="neo-shadow-right">
             <DialogHeader>
                 <DialogTitle>{title}</DialogTitle>
                 <DialogDescription>
@@ -29,10 +29,10 @@ export default function AppModal({
             <form onSubmit={onSubmit}>
                 <div className="space-y-4">{children}</div>
                 <DialogFooter className="mt-8">
-                    <Button type="submit" variant="default" disabled={isLoading}>
+                    <Button className="cursor-pointer" type="submit" variant="default" disabled={isLoading}>
                         {isLoading ? "Loading..." : "Submit"}
                     </Button>
-                    <Button type="button" variant="outline" onClick={handleClose} disabled={isLoading}>
+                    <Button className="hover:not-active:bg-slate-200 cursor-pointer" type="button" variant="outline" onClick={handleClose} disabled={isLoading}>
                         Cancel
                     </Button>
                 </DialogFooter>
