@@ -1,0 +1,315 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Base */
+  --background: #fffdf5;
+  --foreground: #000000;
+
+  /* Card */
+  --card: #ffffff;
+  --card-foreground: #000000;
+
+  /* Popover */
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+
+  /* Brand */
+  --primary: #ffde59;
+  --primary-foreground: #000000;
+
+  --secondary: #90d5ff;
+  --secondary-foreground: #000000;
+
+  /* Accent */
+  --accent: #ff90e8;
+  --accent-foreground: #000000;
+
+  /* Muted */
+  --muted: #f5f5f5;
+  --muted-foreground: #525252;
+
+  /* Status */
+  --destructive: #ff3b30;
+
+  /* Borders & inputs */
+  --border: #000000;
+  --input: #000000;
+  --ring: #000000;
+
+  /* Charts */
+  --chart-1: #ffde59;
+  --chart-2: #90d5ff;
+  --chart-3: #ff90e8;
+  --chart-4: #b6f36b;
+  --chart-5: #c9b6ff;
+
+  /* Neubrutalism */
+  --radius: 0.5rem;
+}
+
+@layer components {
+  .neo-box {
+    @apply border-3 border-black rounded-2xl bg-white transition-all duration-300;
+    box-shadow: 5px 5px 0px #000;
+  }
+
+  .neo-box-hover {
+    @apply hover:-translate-x-1 hover:-translate-y-1;
+    box-shadow: 5px 5px 0px #000;
+  }
+  .neo-box-hover:hover {
+    box-shadow: 8px 8px 0px #000;
+  }
+
+  /* Card Base */
+  .neo-card {
+    @apply relative border-3 border-black rounded-2xl p-5 overflow-hidden transition-all duration-300 transform-gpu;
+    box-shadow: 6px 6px 0px #000;
+  }
+  .neo-card:hover {
+    @apply -translate-x-1 -translate-y-1;
+    box-shadow: 10px 10px 0px #000;
+  }
+
+  .neo-btn {
+    @apply font-bold border-2 border-black rounded-xl transition-all duration-150 active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-2;
+  }
+
+  .neo-btn-primary {
+    @apply bg-[#FF4F00] text-white hover:bg-[#E04500];
+    box-shadow: 3px 3px 0px #000;
+  }
+
+  .neo-btn-secondary {
+    @apply bg-white text-black hover:bg-neutral-100;
+    box-shadow: 3px 3px 0px #000;
+  }
+
+  .neo-btn-delete {
+    @apply border-2 border-black bg-rose-400 text-black hover:bg-rose-500 font-bold px-3 py-1.5 rounded-xl transition-all duration-150 active:translate-x-0.5 active:translate-y-0.5 active:shadow-none flex items-center gap-1.5 text-xs tracking-wider uppercase;
+    box-shadow: 2px 2px 0px #000;
+  }
+
+  /* Input Fields */
+  .neo-input {
+    @apply w-full px-4 py-2.5 rounded-xl border-2 border-black font-semibold text-black placeholder-neutral-500 focus:outline-none transition-all;
+    box-shadow: 3px 3px 0px #000;
+  }
+
+  .neo-input:focus {
+    box-shadow: 4px 4px 0px #000;
+  }
+
+  /* Badge / Pill */
+  .neo-badge {
+    @apply text-xs font-black px-3 py-1 rounded-full border-2 border-black uppercase tracking-wider bg-white/80 backdrop-blur-sm shadow-[2px_2px_0px_#000];
+  }
+
+  .neo-border {
+    @apply border-1 border-black
+  }
+
+  .neo-shadow:not(:disabled) {
+    @apply shadow-[0px_6px_0px_0px_#000]
+  }
+
+  .neo-shadow-left:not(:disabled) {
+    @apply shadow-[-5px_-5px_0px_0px_#000]
+  }
+
+  .neo-shadow-right:not(:disabled) {
+    @apply shadow-[5px_5px_0px_0px_#000]
+  }
+
+  button.neo-shadow:active:not(:disabled) {
+    @apply translate-y-1;
+    @apply shadow-none;
+  }
+
+  button.neo-shadow-right:active:not(:disabled) {
+    @apply translate-x-1 translate-y-1;
+    @apply shadow-none;
+  }
+
+  button:active:not(:disabled) {
+    @apply bg-slate-700 text-white
+  }
+
+  .neo-primary {
+    @apply bg-[#ffde59];
+  }
+
+  button.neo-primary:hover:not(:disabled):not(:active) {
+    @apply bg-[#e3c54d];
+  }
+
+  .neo-secondary {
+    @apply bg-[#90d5ff];
+  }
+
+  .neo-green {
+    @apply bg-green-200;
+  }
+
+  .neo-accent {
+    @apply bg-[#ff90e8];
+  }
+
+  .neo-background {
+    @apply bg-[#fffdf5];
+  }
+
+  .neo-surface {
+    @apply bg-white;
+  }
+
+  .neo-danger {
+    @apply bg-red-400;
+  }
+
+  .neo-outline {
+    @apply bg-white;
+  }
+
+  button.neo-outline:hover:not(:disabled):not(:active) {
+    @apply bg-[#ffde59];
+  }
+
+  button.neo-danger:hover:not(:disabled):not(:active) {
+    @apply bg-red-500;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+
+  --font-sans: "Archivo", sans-serif
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("/assets/fonts/Archivo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("/assets/fonts/Archivo-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("/assets/fonts/Archivo-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("/assets/fonts/Archivo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("/fonts/Archivo-SemiBold.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Archivo", sans-serif;
+
+  @keyframes neoPopIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.85) translateY(20px);
+    }
+    70% {
+      transform: scale(1.02) translateY(-2px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes neoDeleteOut {
+    0% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.6) rotate(-8deg) translateY(20px);
+    }
+  }
+}
+
+.animate-neo-pop {
+  animation: neoPopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-neo-delete {
+  animation: neoDeleteOut 0.35s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+}
